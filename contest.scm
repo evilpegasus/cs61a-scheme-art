@@ -2,12 +2,12 @@
 ;;;
 ;;; Please do not include your name or personal info in this file.
 ;;;
-;;; Title: <Your title here>
+;;; Title: I took my bumblebee for a walk
 ;;;
 ;;; Description:
-;;;   <It's your masterpiece.
-;;;    Use these three lines to describe
-;;;    its inner meaning.>
+;;;    I took my bumble
+;;;    bee out for a little walk.
+;;;    He was so random.
 
 (define (draw)
   ; YOUR CODE HERE
@@ -31,6 +31,7 @@
       ()
       (begin
         (color (rgb (random n) (random n) (random n)))
+        ; (right (* 360 (random 9)))
         (right (* 60 (random-choice 0 1)))
         (forward (* 200 (random 69)))
         (loop (- n 1))

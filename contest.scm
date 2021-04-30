@@ -11,13 +11,37 @@
 
 (define (draw)
   ; YOUR CODE HERE
-  (pixel 5 5 "red")
-  (pixel 6 5 "red")
-  (pixel 7 5 "red")
-  (pixel 8 5 "red")
-  (circle 10)
+  ; RNG from here:
+  ; https://stackoverflow.com/questions/14674165/scheme-generate-random
+  (define random
+  (let ((a 69069) (c 1) (m (expt 2 32)) (seed 19380110))
+    (lambda (new-seed)
+      (if (pair? new-seed)
+          (define seed (car new-seed))
+          (define seed (modulo (+ (* seed a) c) m)))
+      (/ seed m))))
+  
+  (pendown)
+  (define (loop n)
+    (if (= n 0)
+      ()
+      (begin
+        (color (rgb (random 1) (random 2) (random 3)))
+        (right (* 360 (random 4)))
+        (forward (* 500 (random 5)))
+        (loop (- n 1))
+      )
+      
+    )
+  )
+  ; 119 max recursion depth
+  (loop 119)
+
+
+
   (hideturtle)
-  (exitonclick))
+  (exitonclick)
+)
 
 ; Please leave this last line alone.  You may add additional procedures above
 ; this line.

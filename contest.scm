@@ -31,7 +31,6 @@
       ()
       (begin
         (color (rgb (random n) (random n) (random n)))
-        ; (right (* 360 (random 9)))
         (right (* 60 (random-choice 0 1)))
         (forward (* 200 (random 69)))
         (loop (- n 1))
@@ -42,14 +41,8 @@
   ; 119 max recursion depth
   (loop 119)
   (loop 50)
-;   (loop 119)
-;   (loop 119)
-;   (loop 119)
-;   (loop 119)
-;   (loop 119)
 
   (hideturtle)
-;   (save-to-file "asdf")
   (exitonclick)
 )
 

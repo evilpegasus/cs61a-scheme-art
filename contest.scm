@@ -17,8 +17,8 @@
   (let ((a 69069) (c 1) (m (expt 2 32)) (seed 19380110))
     (lambda (new-seed)
       (if (pair? new-seed)
-          (define seed (car new-seed))
-          (define seed (modulo (+ (* seed a) c) m)))
+          (set! seed (car new-seed))
+          (set! seed (modulo (+ (* seed a) c) m)))
       (/ seed m))))
   
   (pendown)
@@ -26,9 +26,9 @@
     (if (= n 0)
       ()
       (begin
-        (color (rgb (random 1) (random 2) (random 3)))
+        (color (rgb (random n) (random n) (random n)))
         (right (* 360 (random 4)))
-        (forward (* 500 (random 5)))
+        (forward (* 1000 (random 5)))
         (loop (- n 1))
       )
       
